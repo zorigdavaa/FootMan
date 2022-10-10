@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Barrack : Zone
 {
+    [SerializeField] List<Transform> jagsahPos;
     public override void SwallowMaterial(Transform item, int price)
     {
         StartCoroutine(localFunction(item));
@@ -21,6 +22,7 @@ public class Barrack : Zone
             if (price == 0)
             {
                 Instantiate(InstantiateObj, insPos.position, Quaternion.identity);
+
                 Price = 1;
             }
             Destroy(item.gameObject);

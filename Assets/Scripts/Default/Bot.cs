@@ -12,10 +12,18 @@ public class Bot : Character
     [SerializeField] Transform Chest;
     private void Start()
     {
-        Target = FindObjectOfType<Player>().transform;
-        movement.GoToPosition(Target);
+        // Target = FindObjectOfType<Player>().transform;
+        // movement.GoToPosition(Target);
         animationController.Set8WayLayerWeight(false);
         animationController.OnAttackEvent += OnAttack;
+    }
+    public void GotoTarget()
+    {
+        movement.GoToPosition(Target);
+    }
+    public void GotoPos(Vector3 pos)
+    {
+        movement.GoToPosition(pos);
     }
 
     private void OnAttack(object sender, EventArgs e)
@@ -36,7 +44,7 @@ public class Bot : Character
 
     private void Update()
     {
-        if (Vector3.Distance(Target.position, transform.position) < 4 && !Attacking && IsAlive)
+        if (Target && Vector3.Distance(Target.position, transform.position) < 4 && !Attacking && IsAlive)
         {
             Attacking = true;
             animationController.Attack();

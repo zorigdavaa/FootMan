@@ -39,10 +39,10 @@ public class Player : Character
         AbilitiesScript.GetAbilitieByIndex(0).OnSkillUsed = Skill0;
         AbilitiesScript.GetAbilitieByIndex(1).OnSkillUsed = Skill1;
         AbilitiesScript.GetAbilitieByIndex(2).OnSkillUsed = Skill2;
-        foreach (var item in FindObjectsOfType<ZombieSpawner>())
-        {
-            enemyCount += item.zombieCount;
-        }
+        // foreach (var item in FindObjectsOfType<ZombieSpawner>())
+        // {
+        //     enemyCount += item.zombieCount;
+        // }
         // cameraController.Zoom(0.5f, 20, () => cameraController.Zoom(1, 60));
     }
 
@@ -58,10 +58,10 @@ public class Player : Character
     internal void IncreaseKillCount()
     {
         killCount++;
-        if (killCount >= enemyCount)
-        {
-            GameManager.Instance.LevelComplete(this, 0);
-        }
+        // if (killCount >= enemyCount)
+        // {
+        //     GameManager.Instance.LevelComplete(this, 0);
+        // }
 
     }
 

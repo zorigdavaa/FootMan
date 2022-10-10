@@ -55,6 +55,7 @@ MonoBehaviour:
   SwallowDuration: 0.5
   InstantiateObj: {fileID: 2628647885444291009, guid: dfcd3976490364644b01141da0d044c2,
     type: 3}
+  jagsahPos: []
 --- !u!65 &6995982206369804414
 BoxCollider:
   m_ObjectHideFlags: 0
