@@ -13,12 +13,12 @@ public class MovementEggRun : Mb
     [SerializeField] Transform targetPos;
     [SerializeField] Vector3? NoLookTaget;
     [SerializeField] float speed = 0;
-    Seeker seeker;
+    [SerializeField] Seeker seeker;
     Path path;
 
     private void Start()
     {
-        seeker = GetComponent<Seeker>();
+        // seeker = GetComponent<Seeker>();
 
     }
     void Update()
@@ -79,7 +79,7 @@ public class MovementEggRun : Mb
         CancelDistance = _cancelDistance;
         afterGoAction = afterAction;
         path = seeker.StartPath(transform.position, targetPos.position);
-        // print(path.vectorPath.Count);
+        print(path.vectorPath.Count);
         // Debug.Break();
     }
     public Action afterGoAction;
@@ -92,6 +92,7 @@ public class MovementEggRun : Mb
         Goto.transform.position = _target;
         targetPos = Goto.transform;
         afterGoAction = afterAction;
+        path = seeker.StartPath(transform.position, targetPos.position);
     }
     public void Cancel(bool cancelAfterInvoke = false)
     {
