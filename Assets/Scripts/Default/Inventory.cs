@@ -23,6 +23,20 @@ public class Inventory : MonoBehaviour
 
         return Vector3.up * 0.5f * Objects.Count;
     }
+
+    internal GameObject GetItemByTag(string v)
+    {
+        foreach (var item in Objects)
+        {
+            if (item.CompareTag(v))
+            {
+                Objects.Remove(item);
+                return item;
+            }
+        }
+        return null;
+    }
+
     Vector3 GetTopPos(int index)
     {
         return Vector3.up * index;

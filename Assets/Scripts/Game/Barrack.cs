@@ -7,7 +7,7 @@ public class Barrack : Zone
     [SerializeField] List<Transform> jagsahPos;
     int jagsahIndex = 0;
     // [SerializeField] List<>
-    public override void SwallowMaterial(Transform item, int price)
+    public override void SwallowItem(Transform item, int price)
     {
         StartCoroutine(localFunction(item));
         IEnumerator localFunction(Transform item)

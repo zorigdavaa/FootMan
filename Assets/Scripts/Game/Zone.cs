@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Zone : MonoBehaviour
+public class Zone : MonoBehaviour, ISwallower
 {
     [SerializeField] List<GameObject> icons;
     [SerializeField] TextMeshPro priceText;
@@ -12,20 +12,18 @@ public class Zone : MonoBehaviour
     public float SwallowDelay = 0.04f;
     public float SwallowDuration = 0.5f;
     public GameObject InstantiateObj;
-
-
-    Inventory Inventory;
-    private void Start()
-    {
-        Inventory = FindObjectOfType<Player>().inventory;
-    }
-    float WaitTime = 0;
+    public float WaitTime = 0;
     private void OnTriggerStay(Collider other)
+    {
+        WaitFindSwallow(other);
+    }
+
+    public virtual void WaitFindSwallow(Collider other)
     {
         WaitTime -= Time.deltaTime;
         if (other.gameObject.CompareTag("Player") && WaitTime < 0 && Price > 0)
         {
-            Inventory = other.GetComponent<Player>().inventory;
+            Inventory Inventory = other.GetComponent<Player>().inventory;
             if (!Inventory.HasItem())
             {
                 return;
@@ -35,13 +33,13 @@ public class Zone : MonoBehaviour
             {
                 Price--;
                 // priceText.text = Price.ToString();
-                SwallowMaterial(item, Price);
+                SwallowItem(item, Price);
             }
             WaitTime = SwallowDelay;
         }
     }
 
-    public virtual void SwallowMaterial(Transform item, int price)
+    public virtual void SwallowItem(Transform item, int price)
     {
         StartCoroutine(localFunction(item));
         IEnumerator localFunction(Transform item)
