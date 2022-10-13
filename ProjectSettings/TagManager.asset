@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collect
   - Weapon
+  - Iron
   layers:
   - Default
   - TransparentFX
