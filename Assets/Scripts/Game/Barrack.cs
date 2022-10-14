@@ -7,10 +7,26 @@ public class Barrack : MonoBehaviour
     public GameObject InstantiateObj;
     public Transform insPos;
     [SerializeField] List<Transform> jagsahPos;
+    [SerializeField] StandInterActer standInterActer;
+    [SerializeField] List<Bot> myBots;
     int jagsahIndex = 0;
     public int capacity = 5;
     float WaitTime = 0;
     float DelayTime = 3;
+
+    private void Start()
+    {
+        standInterActer.OnStandedStill += OnStantedStill;
+    }
+
+    private void OnStantedStill(object sender, System.EventArgs e)
+    {
+        foreach (var bot in myBots)
+        {
+            bot.GoToWar();
+        }
+    }
+
     // [SerializeField] List<>
     private void Update()
     {
@@ -22,6 +38,7 @@ public class Barrack : MonoBehaviour
                 Bot insBot = Instantiate(InstantiateObj, insPos.position + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-2f, -1f)), Quaternion.identity).GetComponent<Bot>();
                 insBot.GotoPos(jagsahPos[jagsahIndex].position);
                 jagsahIndex++;
+                myBots.Add(insBot);
                 WaitTime = DelayTime;
             }
         }

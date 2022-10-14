@@ -26,6 +26,11 @@ public class Bot : Character
         movement.GoToPosition(pos);
     }
 
+    internal void GoToWar()
+    {
+        movement.GoToPosition(new Vector3(-10, 0, 30));
+    }
+
     private void OnAttack(object sender, EventArgs e)
     {
         if (Target.GetComponent<Character>().IsAlive && IsAlive)

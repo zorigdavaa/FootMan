@@ -104,6 +104,7 @@ namespace ZPackage
                 Z.CanM.HudScore(value.ToString());
             }
         }
+        
         private int throwCount;
         public int ThrowCount
         {
