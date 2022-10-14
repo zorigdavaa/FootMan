@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface ISwallower
 {
+    public void WaitFindSwallow(Collider other);
     public void SwallowItem(Transform item, int price = 0);
 }

@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6953189322667916785}
   - component: {fileID: 6953189322667916784}
+  - component: {fileID: 1196132746}
   m_Layer: 0
   m_Name: WeaponTable
   m_TagString: Untagged
@@ -309,3 +310,17 @@ MonoBehaviour:
   - {fileID: 6953189321896058617}
   - {fileID: 6953189321779310524}
   placedWeapong: []
+  SwallowDelay: 0.5
+--- !u!65 &1196132746
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953189322667916798}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: 0}

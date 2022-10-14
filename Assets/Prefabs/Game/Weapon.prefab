@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8622152593461119546}
   - component: {fileID: 8622152593461119545}
   - component: {fileID: 37170643}
-  - component: {fileID: 37170644}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -67,18 +66,6 @@ CapsuleCollider:
   m_Height: 4.02
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &37170644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8622152593461119547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3f22e905f5e6948acb83bbdcdbd198, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8622152594484470297
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +324,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 68595a67864f81d4d8ab2a72c570e868, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

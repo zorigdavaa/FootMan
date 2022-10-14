@@ -12,7 +12,7 @@ public class Zone : MonoBehaviour, ISwallower
     public float SwallowDelay = 0.04f;
     public float SwallowDuration = 0.5f;
     public GameObject InstantiateObj;
-    public float WaitTime = 0;
+    float WaitTime = 0;
     private void OnTriggerStay(Collider other)
     {
         WaitFindSwallow(other);
