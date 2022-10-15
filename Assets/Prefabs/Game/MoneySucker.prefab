@@ -82,7 +82,8 @@ MonoBehaviour:
   priceText: {fileID: 0}
   insPos: {fileID: 4105418472924301245}
   Price: 3
-  SwallowDuration: 0.5
+  monePrefab: {fileID: 5076642301061011366, guid: 52fb5282fd448f448a60c912beab11be,
+    type: 3}
   InstantiateObj: {fileID: 2820705998541201932, guid: 175959afaae6b9e459efcd9338bc6799,
     type: 3}
 --- !u!65 &4105418473204643496
