@@ -10,6 +10,7 @@ public class Bot : Character
     [SerializeField] List<Collect> myCollect;
     public Transform Target;
     [SerializeField] Transform Chest;
+    public BotState state;
 
     private void Start()
     {
@@ -35,6 +36,10 @@ public class Bot : Character
         if (nearEnemy)
         {
             Target = nearEnemy.transform;
+        }
+        else
+        {
+            movement.GoToPosition(transform.position + Random.insideUnitSphere * 5);
         }
     }
     public void GotoTarget()
@@ -66,18 +71,24 @@ public class Bot : Character
         }
     }
     bool Attacking = false;
-
     private void Update()
+    {
+        switch (state)
+        {
+            case BotState.idle: print("idle"); break;
+            case BotState.Wandering: FindTarget(); break;
+            case BotState.Fighting: Attack(); ; break;
+            default: break;
+        }
+    }
+
+    private void Attack()
     {
         if (Target && Vector3.Distance(Target.position, transform.position) < 4 && !Attacking && IsAlive)
         {
             Attacking = true;
             animationController.Attack();
             movement.Cancel();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            FindTarget();
         }
     }
 
@@ -97,7 +108,8 @@ public class Bot : Character
         // rb.isKinematic = true;
         FindObjectOfType<Player>().IncreaseKillCount();
     }
-
-
-
+}
+public enum BotState
+{
+    idle, Wandering, Fighting
 }
