@@ -17,6 +17,7 @@ public class Character : Mb
     bool ControlAble = true;
     private Color? color = null;
     public bool IsAlive => Health > 0;
+    public int Team = 0;
     [SerializeField] Image healthBar;
     public Color GetColor()
     {

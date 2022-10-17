@@ -10,12 +10,32 @@ public class Bot : Character
     [SerializeField] List<Collect> myCollect;
     public Transform Target;
     [SerializeField] Transform Chest;
+
     private void Start()
     {
         // Target = FindObjectOfType<Player>().transform;
         // movement.GoToPosition(Target);
         animationController.Set8WayLayerWeight(false);
         animationController.OnAttackEvent += OnAttack;
+    }
+    public void FindTarget()
+    {
+        float nearDistance = 100;
+        Character nearEnemy = null;
+        foreach (var item in Physics.OverlapSphere(transform.position, 5))
+        {
+            Character enemy = item.GetComponent<Character>();
+            float distance = Vector3.Distance(transform.position, item.transform.position);
+            if (enemy && enemy.Team != Team && distance < nearDistance)
+            {
+                nearDistance = distance;
+                nearEnemy = enemy;
+            }
+        }
+        if (nearEnemy)
+        {
+            Target = nearEnemy.transform;
+        }
     }
     public void GotoTarget()
     {
@@ -28,7 +48,7 @@ public class Bot : Character
 
     internal void GoToWar()
     {
-        movement.GoToPosition(new Vector3(-10, 0, 30));
+        movement.GoToPosition(new Vector3(-10, 0, 30), afterAction: () => FindTarget());
     }
 
     private void OnAttack(object sender, EventArgs e)
@@ -54,6 +74,10 @@ public class Bot : Character
             Attacking = true;
             animationController.Attack();
             movement.Cancel();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            FindTarget();
         }
     }
 
