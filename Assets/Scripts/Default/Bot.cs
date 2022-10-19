@@ -106,7 +106,7 @@ public class Bot : Character
     {
         base.Die();
         // rb.isKinematic = true;
-        FindObjectOfType<Player>().IncreaseKillCount();
+        // FindObjectOfType<Player>().IncreaseKillCount();
     }
 }
 public enum BotState
