@@ -11,6 +11,7 @@ public class Bot : Character
     public Transform Target;
     [SerializeField] Transform Chest;
     public BotState state;
+    public bool UseAI;
 
     private void Start()
     {
@@ -73,12 +74,16 @@ public class Bot : Character
     bool Attacking = false;
     private void Update()
     {
-        switch (state)
+        if (UseAI)
         {
-            case BotState.idle: print("idle"); break;
-            case BotState.Wandering: FindTarget(); break;
-            case BotState.Fighting: Attack(); ; break;
-            default: break;
+            switch (state)
+            {
+                case BotState.idle: print("idle"); break;
+                case BotState.Wandering: FindTarget(); break;
+                case BotState.Fighting: Attack(); ; break;
+                case BotState.Chasing: Attack(); ; break;
+                default: break;
+            }
         }
     }
 
@@ -106,10 +111,10 @@ public class Bot : Character
     {
         base.Die();
         // rb.isKinematic = true;
-        // FindObjectOfType<Player>().IncreaseKillCount();
+        FindObjectOfType<Player>().IncreaseKillCount();
     }
 }
 public enum BotState
 {
-    idle, Wandering, Fighting
+    idle, Wandering, Fighting, Chasing
 }
