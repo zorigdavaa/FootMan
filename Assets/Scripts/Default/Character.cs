@@ -10,7 +10,7 @@ public class Character : Mb
 {
     public MovementEggRun movement;
     public LeaderBoardData data;
-    float Health = 100;
+    public float Health = 100;
     TextMeshPro followTmp;
     public AnimationController animationController;
     public Inventory inventory;
