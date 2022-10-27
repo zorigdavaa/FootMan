@@ -3675,7 +3675,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponTable
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6953189321008564427, guid: 2cdb7f271f082d6409661158a4b2f4a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2cdb7f271f082d6409661158a4b2f4a7, type: 3}
 --- !u!1001 &7840614804196353530
 PrefabInstance:

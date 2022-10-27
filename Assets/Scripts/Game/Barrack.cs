@@ -9,6 +9,7 @@ public class Barrack : MonoBehaviour
     [SerializeField] List<Transform> jagsahPos;
     [SerializeField] StandInterActer standInterActer;
     [SerializeField] List<Bot> myBots;
+    public WeaponTable table;
     int jagsahIndex = 0;
     public int capacity = 5;
     float WaitTime = 0;
@@ -17,6 +18,7 @@ public class Barrack : MonoBehaviour
     private void Start()
     {
         standInterActer.OnStandedStill += OnStantedStill;
+        table = FindObjectOfType<WeaponTable>();
     }
 
     private void OnStantedStill(object sender, System.EventArgs e)
@@ -36,7 +38,15 @@ public class Barrack : MonoBehaviour
             if (WaitTime < 0)
             {
                 Bot insBot = Instantiate(InstantiateObj, insPos.position + new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-2f, -1f)), Quaternion.identity).GetComponent<Bot>();
-                insBot.GotoPos(jagsahPos[jagsahIndex].position);
+                // insBot.GotoPos(jagsahPos[jagsahIndex].position);
+                if (table)
+                {
+                    insBot.GotoPath(new List<Vector3> { table.transform.position, jagsahPos[jagsahIndex].position });
+                }
+                else
+                {
+                    insBot.GotoPos(jagsahPos[jagsahIndex].position);
+                }
                 jagsahIndex++;
                 myBots.Add(insBot);
                 WaitTime = DelayTime;

@@ -12,6 +12,7 @@ public class WeaponTable : MonoBehaviour, ISwallower
     // Start is called before the first frame update
     void Start()
     {
+        // FindObjectOfType<Barrack>().table = this;
         // for (int i = 0; i < placedWeapong.Count; i++)
         // {
         //     placedWeapong[i].GotoPos(weaponPos[i].position);

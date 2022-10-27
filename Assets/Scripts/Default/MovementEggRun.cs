@@ -3,6 +3,7 @@ using System;
 using TMPro;
 using ZPackage;
 using Pathfinding;
+using System.Collections.Generic;
 
 public class MovementEggRun : Mb
 {
@@ -15,6 +16,7 @@ public class MovementEggRun : Mb
     [SerializeField] float speed = 0;
     [SerializeField] Seeker seeker;
     Path path;
+    List<Vector3> goPos = new List<Vector3>();
 
     private void Start()
     {
@@ -34,11 +36,42 @@ public class MovementEggRun : Mb
                 // ForwardMove(targetPos.position);
                 ForwardMovePathFind(targetPos.position);
             }
+            else if (goPos.Count > 0)
+            {
+                MoveToPath();
+            }
             // else if (NoLookTaget != null)
             // {
             //     MoveNoLook();
             // }
         }
+    }
+
+    private void MoveToPath()
+    {
+        Vector3 dir = (goPos[0] - transform.position).normalized;
+
+        Quaternion targetRotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
+        rb.MovePosition(rb.position + dir * speed * Time.deltaTime);
+        float distance = Vector3.Distance(goPos[0], transform.position);
+        if (distance < CancelDistance)
+        {
+            goPos.RemoveAt(0);
+            if (goPos.Count == 0)
+            {
+                Cancel();
+            }
+        }
+    }
+    public void GotoPath(List<Vector3> path, float speedPercent = 1, Action afterAction = null)
+    {
+        DestroyCreated();
+        goPos = path;
+        SetSpeed(speedPercent);
+        targetPos = null;
+        CancelDistance = 0.1f;
+        afterGoAction = afterAction;
     }
 
     public void SetSpeed(float percent)

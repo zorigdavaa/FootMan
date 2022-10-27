@@ -29,6 +29,10 @@ public class Bot : Character
     {
         movement.GoToPosition(pos);
     }
+    public void GotoPath(List<Vector3> path)
+    {
+        movement.GotoPath(path);
+    }
 
     internal void GoToWar()
     {
