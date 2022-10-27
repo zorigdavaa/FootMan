@@ -17,6 +17,14 @@ public class WeaponTable : MonoBehaviour, ISwallower
         //     placedWeapong[i].GotoPos(weaponPos[i].position);
         // }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        Character charac = other.GetComponent<Character>();
+        if (charac && charac.HasWeapon())
+        {
+
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
