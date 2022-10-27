@@ -43,7 +43,7 @@ public class Bot : Character
     {
         if (Target.GetComponent<Character>().IsAlive && IsAlive)
         {
-
+            print(Target.GetComponent<Character>().Health);
             if (Vector3.Distance(transform.position, Target.position) < 3)
             {
 
@@ -55,6 +55,7 @@ public class Bot : Character
         }
         else
         {
+            Target = null;
             state = BotState.Wandering;
         }
     }
@@ -112,7 +113,7 @@ public class Bot : Character
         {
             Character enemy = item.GetComponent<Character>();
             float distance = Vector3.Distance(transform.position, item.transform.position);
-            if (enemy && enemy.Team != Team && distance < nearDistance)
+            if (enemy && enemy.Team != Team && distance < nearDistance && enemy.IsAlive)
             {
                 nearDistance = distance;
                 nearEnemy = enemy;
