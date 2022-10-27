@@ -10,6 +10,7 @@ public class Character : Mb
 {
     public MovementEggRun movement;
     public LeaderBoardData data;
+    Weapon holdWeapon;
     public float Health = 100;
     TextMeshPro followTmp;
     public AnimationController animationController;
@@ -26,6 +27,11 @@ public class Character : Mb
             color = transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.color;
         }
         return color.Value;
+    }
+
+    internal bool HasWeapon()
+    {
+        return holdWeapon != null;
     }
 
     public void SetColor(Color incomingColor)
