@@ -42,6 +42,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1155995339466897117, guid: d89507eda19cfb04fab838d8cbfb60c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1284209667865578076, guid: d89507eda19cfb04fab838d8cbfb60c4,
         type: 3}
       propertyPath: m_Layer
@@ -505,12 +510,17 @@ MonoBehaviour:
     isPlayer: 0
     isLive: 0
     col: {r: 0, g: 0, b: 0, a: 0}
+  holdWeapon: {fileID: 5723459477079635182}
+  Health: 100
   animationController: {fileID: 6175052141859994368}
   inventory: {fileID: 2628647886648144842}
+  Team: 0
   healthBar: {fileID: 1214178750801076698}
   myCollect: []
   Target: {fileID: 0}
   Chest: {fileID: 5300478731861006578}
+  state: 0
+  UseAI: 0
 --- !u!114 &2628647885444291015 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8871509487102450678, guid: d89507eda19cfb04fab838d8cbfb60c4,
@@ -541,6 +551,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6874528996378460721}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5723459477079635182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1155995339466897119, guid: d89507eda19cfb04fab838d8cbfb60c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6874528996378460721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3833ac86c2e64154e985dd1bdd377b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5848876185557093301 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1030297739706861956, guid: d89507eda19cfb04fab838d8cbfb60c4,

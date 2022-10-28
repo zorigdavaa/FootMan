@@ -10,7 +10,7 @@ public class Character : Mb
 {
     public MovementEggRun movement;
     public LeaderBoardData data;
-    Weapon holdWeapon;
+    public Weapon holdWeapon;
     public float Health = 100;
     TextMeshPro followTmp;
     public AnimationController animationController;
@@ -31,7 +31,15 @@ public class Character : Mb
 
     internal bool HasWeapon()
     {
-        return holdWeapon != null;
+        return holdWeapon.gameObject.activeSelf;
+    }
+    public void ShowWeapon()
+    {
+        holdWeapon.gameObject.SetActive(true);
+    }
+    public void UpGradeWeapon()
+    {
+        holdWeapon.UpGrade();
     }
 
     public void SetColor(Color incomingColor)

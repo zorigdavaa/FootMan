@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 8622152594895287435}
   - {fileID: 8622152594484470297}
   - {fileID: 8622152595507519257}
+  HandPos: {x: -1.635521, y: 0.3465502, z: -0.2065587}
+  handRot: {x: -3.617, y: -98.663, z: 153.128}
 --- !u!136 &37170643
 CapsuleCollider:
   m_ObjectHideFlags: 0

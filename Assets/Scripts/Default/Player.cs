@@ -39,6 +39,7 @@ public class Player : Character
         AbilitiesScript.GetAbilitieByIndex(0).OnSkillUsed = Skill0;
         AbilitiesScript.GetAbilitieByIndex(1).OnSkillUsed = Skill1;
         AbilitiesScript.GetAbilitieByIndex(2).OnSkillUsed = Skill2;
+        GameManager.Instance.Coin = 10;
         // foreach (var item in FindObjectsOfType<ZombieSpawner>())
         // {
         //     enemyCount += item.zombieCount;

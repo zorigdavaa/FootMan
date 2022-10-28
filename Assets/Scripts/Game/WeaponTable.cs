@@ -21,9 +21,12 @@ public class WeaponTable : MonoBehaviour, ISwallower
     private void OnTriggerEnter(Collider other)
     {
         Character charac = other.GetComponent<Character>();
-        if (charac && charac.HasWeapon())
+        if (charac && !charac.HasWeapon() && placedWeapong.Count > 0)
         {
-
+            Destroy(placedWeapong[placedWeapong.Count - 1].gameObject);
+            placedWeapong.RemoveAt(placedWeapong.Count - 1);
+            weaponIndex--;
+            charac.ShowWeapon();
         }
     }
 
