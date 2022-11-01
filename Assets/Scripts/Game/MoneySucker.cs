@@ -14,7 +14,7 @@ public class MoneySucker : MonoBehaviour
     public Transform insPos;
     public int Price, CollectedMoney;
     public GameObject monePrefab;
-    float SwallowDelay = 1f;
+    float SwallowDelay = 0.3f;
     public GameObject InstantiateObj;
     float WaitTime = 0;
     private void Start()

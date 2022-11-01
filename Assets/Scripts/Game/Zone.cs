@@ -12,7 +12,7 @@ public class Zone : MonoBehaviour, ISwallower
     public float SwallowDelay = 0.04f;
     public float SwallowDuration = 0.5f;
     public GameObject InstantiateObj;
-    float WaitTime = 0;
+    [HideInInspector] public float WaitTime = 0;
     private void OnTriggerStay(Collider other)
     {
         WaitFindSwallow(other);
@@ -53,12 +53,17 @@ public class Zone : MonoBehaviour, ISwallower
                 item.position = Vector3.Lerp(itemStartPos, transform.position, time / duration);
                 yield return null;
             }
-            if (price == 0)
-            {
-                Instantiate(InstantiateObj, insPos.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
+            DoAction(price);
             Destroy(item.gameObject);
+        }
+    }
+
+    public virtual void DoAction(int price)
+    {
+        if (price == 0)
+        {
+            Instantiate(InstantiateObj, insPos.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }
