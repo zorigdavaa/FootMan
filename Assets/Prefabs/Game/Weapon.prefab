@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3833ac86c2e64154e985dd1bdd377b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SellPrice: 2
   Models:
   - {fileID: 8622152594895287435}
   - {fileID: 8622152594484470297}

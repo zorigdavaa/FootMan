@@ -41,6 +41,10 @@ public class Character : Mb
     {
         holdWeapon.UpGrade();
     }
+    public void UpGradeWeapon(int idx)
+    {
+        holdWeapon.UpGrade(idx);
+    }
 
     public void SetColor(Color incomingColor)
     {

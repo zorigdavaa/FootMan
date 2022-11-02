@@ -23,10 +23,15 @@ public class WeaponTable : MonoBehaviour, ISwallower
         Character charac = other.GetComponent<Character>();
         if (charac && !charac.HasWeapon() && placedWeapong.Count > 0)
         {
+            int weaponUpgradeIndex = placedWeapong[placedWeapong.Count - 1].GetModelIndex();
             Destroy(placedWeapong[placedWeapong.Count - 1].gameObject);
             placedWeapong.RemoveAt(placedWeapong.Count - 1);
             weaponIndex--;
             charac.ShowWeapon();
+            for (int i = 0; i < weaponUpgradeIndex; i++)
+            {
+                charac.UpGradeWeapon();
+            }
         }
     }
 

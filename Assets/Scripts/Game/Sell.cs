@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using ZPackage;
 
 public class Sell : Zone
 {
     private Camera cam;
+    [SerializeField] GameObject moneyPf;
     private void Start()
     {
         cam = FindObjectOfType<Camera>();
@@ -23,19 +25,23 @@ public class Sell : Zone
             Transform item = Inventory.GetLastItem().transform;
             if (item)
             {
-                SwallowItem(item, Price);
+                SwallowItem(item, item.GetComponent<Collect>().SellPrice);
             }
             WaitTime = SwallowDelay;
         }
     }
     public override void DoAction(int price)
     {
-        GameManager.Instance.Coin++;
+        GameManager.Instance.Coin += price;
         InsMoneyAndGotoTop();
+        GameObject plusOne = Instantiate(InstantiateObj, InstantiateObj.transform.position, Quaternion.identity, transform);
+        plusOne.GetComponent<TextMeshPro>().text = price.ToString();
+        plusOne.SetActive(true);
+        Destroy(plusOne, 1);
     }
     private void InsMoneyAndGotoTop()
     {
-        GameObject money = Instantiate(InstantiateObj, transform.transform.position + Vector3.up, Quaternion.identity);
+        GameObject money = Instantiate(moneyPf, transform.position + Vector3.up, Quaternion.identity);
         RectTransformUtility.ScreenPointToWorldPointInRectangle(CanvasManager.Instance.GetComponent<RectTransform>(), CanvasManager.Instance.Coin.GetComponent<RectTransform>().position, cam, out Vector3 worldPoint);
         // Vector3 toPoint = cam.ScreenToWorldPoint(((RectTransform)CanvasManager.Instance.Coin.transform).position);
         StartCoroutine(localCoroutine());

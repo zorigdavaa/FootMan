@@ -296,7 +296,7 @@ public class MovementEggRun : Mb
 
             Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 0.3f);
             rb.MovePosition(transform.position + dir * speed * Time.deltaTime);
             animationController.SetSpeed(1);
             // float distance = Vector3.Distance(transform.position, _targetPos);

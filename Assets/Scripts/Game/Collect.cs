@@ -6,6 +6,7 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     Color _color;
+    public int SellPrice = 1;
 
     public Color GetColor()
     {
