@@ -78,6 +78,29 @@ public class Bot : Character
             }
         }
     }
+    //tsohiulwal busad ni bas dairna. ooroo bas dairna.
+    public override void TakeDamage(float amount)
+    {
+        if (!UseAI)
+        {
+            FriendsFight();
+        }
+        UseAI = true;
+        base.TakeDamage(amount);
+    }
+
+    private void FriendsFight()
+    {
+        foreach (var item in Physics.OverlapSphere(transform.position, 10))
+        {
+            Character friend = item.GetComponent<Character>();
+            if (friend && friend.Team == Team && friend.IsAlive)
+            {
+                friend.GetComponent<Bot>().UseAI = true;
+            }
+        }
+    }
+
     float chaseTimer = 3;
     private void Chase()
     {

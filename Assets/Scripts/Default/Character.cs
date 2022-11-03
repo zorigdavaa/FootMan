@@ -70,7 +70,7 @@ public class Character : Mb
         Health = value;
         healthBar.fillAmount = Health * 0.01f;
     }
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         SetHealth(Health += amount);
         if (Health <= 0)
