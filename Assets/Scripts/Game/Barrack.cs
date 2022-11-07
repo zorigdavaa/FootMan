@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
 public class Barrack : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class Barrack : MonoBehaviour
     [SerializeField] StandInterActer standInterActer;
     [SerializeField] List<Bot> myBots;
     public WeaponTable table;
+    public EventHandler<Bot> OnBotTrained;
     int jagsahIndex = 0;
     public int capacity = 5;
-    float WaitTime = 0;
+    float WaitTime = 3;
     float DelayTime = 3;
 
     private void Start()
@@ -49,6 +52,7 @@ public class Barrack : MonoBehaviour
                 }
                 jagsahIndex++;
                 myBots.Add(insBot);
+                OnBotTrained?.Invoke(this, insBot);
                 WaitTime = DelayTime;
             }
         }

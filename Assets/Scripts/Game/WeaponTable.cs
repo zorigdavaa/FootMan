@@ -6,6 +6,7 @@ public class WeaponTable : MonoBehaviour, ISwallower
 {
     [SerializeField] List<Transform> weaponPos;
     [SerializeField] List<Weapon> placedWeapong;
+    public Weapon weaponPf;
     public float SwallowDelay = 0.5f;
     float WaitTime = 0;
     int weaponIndex = 0;
@@ -28,10 +29,7 @@ public class WeaponTable : MonoBehaviour, ISwallower
             placedWeapong.RemoveAt(placedWeapong.Count - 1);
             weaponIndex--;
             charac.ShowWeapon();
-            for (int i = 0; i < weaponUpgradeIndex; i++)
-            {
-                charac.UpGradeWeapon();
-            }
+            charac.UpGradeWeapon(weaponUpgradeIndex);
         }
     }
 
@@ -67,6 +65,15 @@ public class WeaponTable : MonoBehaviour, ISwallower
             item.SetParent(transform);
             item.GetComponent<Weapon>().GotoPos(weaponPos[weaponIndex].position);
             placedWeapong.Add(item.GetComponent<Weapon>());
+            weaponIndex++;
+        }
+    }
+    public void InstantiateWeapon()
+    {
+        if (weaponIndex < weaponPos.Count)
+        {
+            Weapon insWeapon = Instantiate(weaponPf, weaponPos[weaponIndex].position, Quaternion.identity, transform);
+            placedWeapong.Add(insWeapon);
             weaponIndex++;
         }
     }

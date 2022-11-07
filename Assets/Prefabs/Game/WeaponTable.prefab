@@ -310,6 +310,8 @@ MonoBehaviour:
   - {fileID: 6953189321896058617}
   - {fileID: 6953189321779310524}
   placedWeapong: []
+  weaponPf: {fileID: 8622152593461119545, guid: bf86330638262ec4ea0fe75d3d87b14b,
+    type: 3}
   SwallowDelay: 0.5
 --- !u!65 &1196132746
 BoxCollider:
