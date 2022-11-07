@@ -10,7 +10,7 @@ public class Barrack : MonoBehaviour
     public Transform insPos;
     [SerializeField] List<Transform> jagsahPos;
     [SerializeField] StandInterActer standInterActer;
-    [SerializeField] List<Bot> myBots;
+    public List<Bot> Soldiers;
     public WeaponTable table;
     public EventHandler<Bot> OnBotTrained;
     int jagsahIndex = 0;
@@ -26,9 +26,9 @@ public class Barrack : MonoBehaviour
 
     private void OnStantedStill(object sender, System.EventArgs e)
     {
-        foreach (var bot in myBots)
+        foreach (var bot in Soldiers)
         {
-            bot.GoToWar();
+            bot.GoToWar(new Vector3(0, 0, 30));
         }
     }
 
@@ -51,7 +51,7 @@ public class Barrack : MonoBehaviour
                     insBot.GotoPos(jagsahPos[jagsahIndex].position);
                 }
                 jagsahIndex++;
-                myBots.Add(insBot);
+                Soldiers.Add(insBot);
                 OnBotTrained?.Invoke(this, insBot);
                 WaitTime = DelayTime;
             }

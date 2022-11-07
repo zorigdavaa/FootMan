@@ -34,9 +34,9 @@ public class Bot : Character
         movement.GotoPath(path);
     }
 
-    internal void GoToWar()
+    internal void GoToWar(Vector3 goPos)
     {
-        movement.GoToPosition(new Vector3(-10, 0, 30), afterAction: () =>
+        movement.GoToPosition(goPos, afterAction: () =>
         {
             UseAI = true;
             state = BotState.Wandering;

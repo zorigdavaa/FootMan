@@ -8,6 +8,7 @@ public class EnemyObjs : MonoBehaviour
 {
     public Barrack barrack;
     public WeaponTable table;
+    float Attactime = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,18 @@ public class EnemyObjs : MonoBehaviour
     private void OnBarrackTrained(object sender, Bot e)
     {
         table.InstantiateWeapon();
+    }
+    private void Update()
+    {
+        Attactime -= Time.deltaTime;
+        if (Attactime < 0)
+        {
+            Attactime = 10;
+            foreach (var item in barrack.Soldiers)
+            {
+                item.GoToWar(new Vector3(0, 0, -10));
+            }
+        }
     }
 
 }
