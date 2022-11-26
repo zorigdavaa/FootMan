@@ -505,12 +505,17 @@ MonoBehaviour:
     isPlayer: 0
     isLive: 0
     col: {r: 0, g: 0, b: 0, a: 0}
+  holdWeapon: {fileID: 0}
+  Health: 100
   animationController: {fileID: 6175052141859994368}
   inventory: {fileID: 2628647886648144842}
+  Team: 1
   healthBar: {fileID: 1214178750801076698}
   myCollect: []
   Target: {fileID: 0}
   Chest: {fileID: 5300478731861006578}
+  state: 0
+  UseAI: 0
 --- !u!114 &2628647885444291015 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8871509487102450678, guid: d89507eda19cfb04fab838d8cbfb60c4,

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028364, g: 0.22571364, b: 0.30692187, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571398, b: 0.30692238, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1177,6 +1177,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrack
       objectReference: {fileID: 0}
+    - target: {fileID: 2820705998541201934, guid: 175959afaae6b9e459efcd9338bc6799,
+        type: 3}
+      propertyPath: InstantiateObj
+      value: 
+      objectReference: {fileID: 2628647885444291009, guid: c691e9a99e0a5734e9be7f201a96b8c7,
+        type: 3}
     - target: {fileID: 2820705998541201935, guid: 175959afaae6b9e459efcd9338bc6799,
         type: 3}
       propertyPath: m_RootOrder
